@@ -1,0 +1,25 @@
+﻿body {
+    background-color: slategray;
+    font-family: Helvetica, sans-serif;
+    display: table;
+    table-layout: auto;
+}
+
+#game {
+    min-height: 200px;
+    height:max-content;
+    padding-top: 75%;
+    
+}
+
+#left {
+    width: 200px;
+    height: 100% ;
+}
+
+
+table {
+    display: table-row;
+    height: 64px;
+    background-color: lightslategray;
+}
