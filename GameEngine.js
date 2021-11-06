@@ -6,13 +6,13 @@ var Player = {
     pos_Y: 0
 }
 
-var gameboard = "<table cellspacing=\"0\" cellpadding=\"0\">";
+var gameboard = "";
 for (let i_rowloop = 0; i_rowloop < tileMap01.height; i_rowloop++)
 {
-    gameboard += "<tr>";
+    gameboard += "<ol class = \"rows\">";
     for (let i_dataloop = 0; i_dataloop < tileMap01.width; i_dataloop++)
     {
-        gameboard += "<td class = \"";
+        gameboard += "<li class = \"";
         let currentTile = tileMap01.mapGrid[i_rowloop][i_dataloop].toString();
         switch (currentTile) {
             case "W": /* Wall */
@@ -43,8 +43,10 @@ for (let i_rowloop = 0; i_rowloop < tileMap01.height; i_rowloop++)
                 gameboard += Tiles.Space + "\">";
                 gameboard += "<img src=\"Tiles\\stone_bricks.png\" alt=\"";
                 Player.pos_X = i_dataloop;
-                Player.pos_y = i_rowloop;
+                Player.pos_Y = i_rowloop;
+                console.log(i_dataloop + " " + i_rowloop);
                 console.log(Player.pos_X + " " + Player.pos_Y);
+                
 
                 break;
 
@@ -55,15 +57,15 @@ for (let i_rowloop = 0; i_rowloop < tileMap01.height; i_rowloop++)
         }
         gameboard += currentTile + "\">";
 
-        gameboard += "</td>";
+        gameboard += "</li>";
     }
 
-    gameboard += "</tr>\n";
+    gameboard += "</ol>\n";
 }
 
-gameboard += "</table>";
-document.getElementById("right").innerHTML = gameboard;
+
+document.getElementById("arena").innerHTML = gameboard;
 //document.getElementById("right").replaceWith(gameboard);
-console.log(gameboard);
-console.log(document.body.height);
+//console.log(gameboard);
+//console.log(document.body.height);
 

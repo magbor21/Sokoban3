@@ -10,67 +10,62 @@ html {
         height: 100%;
         background-color: slategray;
         font-family: Helvetica, sans-serif;
-        display: table;
-        table-layout: auto;
-        padding: 0px;
-        margin: 0px;
     }
+header {
+    
+    border: 1px solid red;
+}
+
 
         #game {
             display: grid;
-            height: 100%;
-            width: 100%;
+            max-height: 600px;
+            max-width: 1000px;
             border: 1px solid blue;
         }
 
-            #left {
-                grid-area: 1 / 1 / span 1 / span 1;
-                width: 200px;
-                height: 100%;
-            }
+#left {
+    grid-area: 1 / 1 / span 1 / span 1;
+    width: 200px;
+    height: 100%;
+    border: 1px solid pink;
+}
 
 
-            #right {
-                grid-area: 1 / 2 / span 1 / span 1;
-                height: 100%;
-                width: 400px;
-                margin: auto;
-            }
+#right {
+    grid-area: 1 / 2 / span 1 / span 1;
+    width: 90%;
+    height: 90%; /*100%*/
+    border: 1px solid green;
+    display: grid;
+}
 
-table {
-    display: table;
+#arena {
+    border: 1px solid black;
+    display: grid;
+}
+ol {
+    grid-area: auto / 1 / auto / auto;   
+    list-style: none;
+    /*border: 1px solid yellow; */
+    /*height: 30px; /**/
+    padding: 0px;
+    margin: 0px;
+    display: grid;
     
-    border-spacing: 0;
-    border-collapse: collapse;
-    padding: 0px;
-    margin: 0px;
-
 }
 
-tr {
-    display: table-row;
-    border: hidden;
+li {
+    grid-area: 1 / auto / auto / auto;
+    /*border: 1px solid orange; */
+    width: 4vmin;
+    height: 4vmin; /* 25px*/
+}
+img {
+    height: 100%; /*4vmin*/
+    width: 100%; /* 20px*/
     padding: 0px;
     margin: 0px;
-}
-
-td {
-    display: table-cell;
-    border: hidden;
-    padding: 0px;
-    margin: 0px;
-}
-
-                            .tile-wall {
-                                padding: 0px;
-                                margin: 0px;
-                            }
-
-                                img {
-                                    height: 20px;
-                                    width: 20px;
-                                    padding: 0px;
-                                    margin: 0px;
 }
 
 
