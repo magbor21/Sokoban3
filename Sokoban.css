@@ -37,12 +37,14 @@ header {
     width: 90%;
     height: 90%; /*100%*/
     border: 1px solid green;
+    margin: 0 / auto;
     display: grid;
 }
 
 #arena {
     border: 1px solid black;
     display: grid;
+    width:fit-content;
 }
 ol {
     grid-area: auto / 1 / auto / auto;   
@@ -58,14 +60,30 @@ ol {
 li {
     grid-area: 1 / auto / auto / auto;
     /*border: 1px solid orange; */
-    width: 4vmin;
-    height: 4vmin; /* 25px*/
+    width: 32px;
+    height: 32px; /* 25px*/
 }
 img {
     height: 100%; /*4vmin*/
     width: 100%; /* 20px*/
     padding: 0px;
     margin: 0px;
+}
+
+.tile {
+    height: 100%; /*4vmin*/
+    width: 100%;
+    z-index: 1;
+    position: relative;
+}
+
+.entity {
+    height: 80%; /*4vmin*/
+    width: 80%;
+    position: relative;
+    top: -100%;
+    left:10%;
+    z-index: 2;
 }
 
 
