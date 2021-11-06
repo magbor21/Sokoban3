@@ -143,7 +143,11 @@ function CanMove(direction) {
 
 function UpdateBoard() {
     console.log("UpdateBoard");
-    var gameboard = "";
+    let gameboard = "";
+    let boxes = 0;
+    let goals = 0;
+    let players = 0;
+
     for (let i_rowloop = 0; i_rowloop < tileMap01.height; i_rowloop++)
     {
         gameboard += "<ol class = \"rows\">";
@@ -161,19 +165,22 @@ function UpdateBoard() {
                     gameboard += Entities.Block + "\">";
                     gameboard += "<img src=\"Tiles\\stone_bricks.png\" class=\"tile\">";
                     gameboard += "<img src=\"Tiles\\observer_back.png\" class=\"entity\" alt=\"";
+                    boxes++;
 
                     break;
 
                 case "G": /* Goal */
                     gameboard += Tiles.Goal + "\">";
-                    gameboard += "<img src=\"Tiles\\barrel_top_open.png\" class=\"tile\">";
-                    gameboard += "<img src=\"Tiles\\goal_on.png\" class=\"entity\" alt=\"";
+                    gameboard += "<img src=\"Tiles\\barrel_top_open.png\" class=\"tile\" alt=\"";;
+                    goals++;
 
                     break;
 
                 case "D": /* Done Tile */
                     gameboard += Entities.BlockDone + "\">";
-                    gameboard += "<img src=\"Tiles\\barrel_top_open.png\" class=\"tile\" alt=\"";
+                    gameboard += "<img src=\"Tiles\\barrel_top_open.png\" class=\"tile\">";
+                    gameboard += "<img src=\"Tiles\\observer_back_on.png\" class=\"entity\" alt=\"";
+                    
                     
                     break;
         
@@ -186,6 +193,7 @@ function UpdateBoard() {
                     Player.pos_X = i_rowloop;
                     console.log(i_dataloop + " " + i_rowloop);
                     // console.log(Player.pos_X + " " + Player.pos_Y);
+                    players++;
                 
                     break;
 
@@ -197,6 +205,8 @@ function UpdateBoard() {
                     Player.pos_Y = i_dataloop;
                     Player.pos_X = i_rowloop;
                     // console.log(i_dataloop + " " + i_rowloop);
+                    players++;
+                    goals++;
                     
 
                     break;
@@ -219,6 +229,12 @@ function UpdateBoard() {
         gameboard += "</ol>\n";
     }
 
+    if (goals != boxes)
+        console.log("Error! Too many or too few boxes ");
+    if (players != 1)
+        console.log("Error! Too many or too few players! ");
+    if (goals == 0)
+        console.log("Victory!");
 
     document.getElementById("arena").innerHTML = gameboard;
     console.log(Player.pos_X + " " + Player.pos_Y);
