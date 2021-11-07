@@ -8,11 +8,44 @@ class Positions{
 
 }
 var Player = new Positions(0, 0);
+var tileMap01 = new TileMaps(16, 16, [[".", ".", "W", "W", "W", "W", ".", ".", ".", ".", ".", ".", ".", ".", ".", "."],
+[".", ".", "W", " ", " ", "W", "W", "W", "W", "W", "W", "W", "W", "W", "W", "W"],
+[".", ".", "W", " ", " ", " ", " ", "B", " ", " ", " ", "B", " ", "B", " ", "W"],
+[".", ".", "W", " ", "B", "W", " ", "B", " ", "W", " ", " ", "B", " ", " ", "W"],
+[".", ".", "W", " ", " ", "B", " ", "B", " ", " ", "W", " ", " ", " ", " ", "W"],
+["W", "W", "W", " ", "B", "W", " ", "W", " ", " ", "W", "W", "W", "W", " ", "W"],
+["W", "P", "W", "B", " ", "B", " ", "B", " ", " ", "W", "W", " ", " ", " ", "W"],
+["W", " ", " ", " ", " ", "B", " ", "W", "B", "W", " ", " ", " ", "W", " ", "W"],
+["W", " ", " ", " ", "B", " ", " ", " ", " ", "B", " ", "B", " ", "B", " ", "W"],
+["W", "W", "W", "W", "W", " ", " ", "W", "W", "W", "W", "W", "W", "W", "W", "W"],
+[".", ".", "W", " ", " ", " ", " ", " ", " ", "W", ".", ".", ".", ".", ".", "."],
+[".", ".", "W", " ", " ", " ", " ", " ", " ", "W", ".", ".", ".", ".", ".", "."],
+[".", ".", "W", "G", "G", "G", "G", "G", "G", "W", ".", ".", ".", ".", ".", "."],
+[".", ".", "W", "G", "G", "G", "G", "G", "G", "W", ".", ".", ".", ".", ".", "."],
+[".", ".", "W", "G", "G", "G", "G", "G", "G", "W", ".", ".", ".", ".", ".", "."],
+[".", ".", "W", "W", "W", "W", "W", "W", "W", "W", ".", ".", ".", ".", ".", "."]]);
 
+
+var tileMapArray = [];
 
 UpdateBoard(); /* ska bort sen*/
+//ImportLevels(); 
 
 document.addEventListener("keydown", KeyPressed);
+
+
+var onFilePicked = function (event) {
+    var input = event.target;
+    var reader = new FileReader();
+    console.log(input.files[0]);
+
+    reader.onload = function (theFile) {
+        var texten = theFile.target.result;
+        console.log(texten);
+    }
+    reader.readAsText(input.files[0]);
+};
+
 
 function KeyPressed(key) {
     let couldMove = false;
@@ -243,4 +276,33 @@ function UpdateBoard() {
     //console.log(document.body.height);
 }
 
+
+
+/*
+function ImportLevels() {
+
+    var texten = "";
+    //var file = new File([""], "./Original.txt");
+    var reader = new FileReader();
+
+    reader.onload = function (theFile) {
+        texten = theFile.target.result;
+        console.log(texten);
+    }
+
+    reader.onloadend = function () {
+        console.log('DONE', reader.readyState); // readyState will be 2
+        //console.log(reader.result);
+    }
+
+    
+    reader.readAsText(file);
+    console.log(texten);
+}
+*/
+
+function FileResult(rf) {
+
+    console.log(rf);
+}
 
