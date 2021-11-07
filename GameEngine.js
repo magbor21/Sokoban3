@@ -8,28 +8,11 @@ class Positions{
 
 }
 var Player = new Positions(0, 0);
-var tileMap01 = new TileMaps(16, 16, [[".", ".", "W", "W", "W", "W", ".", ".", ".", ".", ".", ".", ".", ".", ".", "."],
-[".", ".", "W", " ", " ", "W", "W", "W", "W", "W", "W", "W", "W", "W", "W", "W"],
-[".", ".", "W", " ", " ", " ", " ", "B", " ", " ", " ", "B", " ", "B", " ", "W"],
-[".", ".", "W", " ", "B", "W", " ", "B", " ", "W", " ", " ", "B", " ", " ", "W"],
-[".", ".", "W", " ", " ", "B", " ", "B", " ", " ", "W", " ", " ", " ", " ", "W"],
-["W", "W", "W", " ", "B", "W", " ", "W", " ", " ", "W", "W", "W", "W", " ", "W"],
-["W", "P", "W", "B", " ", "B", " ", "B", " ", " ", "W", "W", " ", " ", " ", "W"],
-["W", " ", " ", " ", " ", "B", " ", "W", "B", "W", " ", " ", " ", "W", " ", "W"],
-["W", " ", " ", " ", "B", " ", " ", " ", " ", "B", " ", "B", " ", "B", " ", "W"],
-["W", "W", "W", "W", "W", " ", " ", "W", "W", "W", "W", "W", "W", "W", "W", "W"],
-[".", ".", "W", " ", " ", " ", " ", " ", " ", "W", ".", ".", ".", ".", ".", "."],
-[".", ".", "W", " ", " ", " ", " ", " ", " ", "W", ".", ".", ".", ".", ".", "."],
-[".", ".", "W", "G", "G", "G", "G", "G", "G", "W", ".", ".", ".", ".", ".", "."],
-[".", ".", "W", "G", "G", "G", "G", "G", "G", "W", ".", ".", ".", ".", ".", "."],
-[".", ".", "W", "G", "G", "G", "G", "G", "G", "W", ".", ".", ".", ".", ".", "."],
-[".", ".", "W", "W", "W", "W", "W", "W", "W", "W", ".", ".", ".", ".", ".", "."]]);
+var tileMap01;
+var selectedLevel = 2;
+ResetBoard();
 
-
-var tileMapArray = [];
-
-UpdateBoard(); /* ska bort sen*/
-//ImportLevels(); 
+UpdateBoard();
 
 document.addEventListener("keydown", KeyPressed);
 
@@ -73,6 +56,11 @@ function KeyPressed(key) {
         case "d":
             couldMove = CanMove("right");
             break;
+        case "r":
+        case "R":
+            ResetBoard();
+            break;
+
         default:
             couldMove = false;
     }
@@ -106,9 +94,6 @@ function CanMove(direction) {
             console.log("wrong direction?");
             return false;
     }
-    console.log(Player.pos_X + " " + Player.pos_Y);
-    console.log(oneStep.pos_X + " " + oneStep.pos_Y);
-    console.log(twoStep.pos_X + " " + twoStep.pos_Y);
 
     if (tileMap01.mapGrid[oneStep.pos_X][oneStep.pos_Y] == "W") // If Player tries to walk on walls or Outside
         return false;
@@ -171,11 +156,15 @@ function CanMove(direction) {
 }
 
 
+function UpdateMenu() {
+console.log("Left");
+    let leftData = "";
 
+}
 
 
 function UpdateBoard() {
-    console.log("UpdateBoard");
+      console.log("Right");
     let gameboard = "";
     let boxes = 0;
     let goals = 0;
@@ -270,12 +259,14 @@ function UpdateBoard() {
         console.log("Victory!");
 
     document.getElementById("arena").innerHTML = gameboard;
-    console.log(Player.pos_X + " " + Player.pos_Y);
     //document.getElementById("right").replaceWith(gameboard);
     //console.log(gameboard);
     //console.log(document.body.height);
 }
 
+function ResetBoard() {
+    tileMap01 = tileMapArray.Map(selectedLevel);
+}
 
 
 /*

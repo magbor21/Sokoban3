@@ -23,16 +23,17 @@ var Entities = {
 
 /* New Tilemap class for easy management */
 class TileMap {
+
     constructor(width, height, mapGrid) {
-        this.width = width;
-        this.height = height;
-        this.mapGrid = mapGrid;
+         this.width = width;
+         this.height = height;
+         this.mapGrid = mapGrid;
     }
 
 }
 
 /* Tilemap collection class */
-class Tilemaps {
+class TileMaps {
     constructor() {
         this.tilemaps = [];
     }
@@ -45,9 +46,21 @@ class Tilemaps {
         return this.tilemaps.length;
     }
 
-    get Map(number) {
-        if (number > 0 && number <= this.tilemaps.length)
-            return this.tilemaps[number - 1];
+    Map(number) {
+        if (number > 0 && number <= this.tilemaps.length) {
+            let width = this.tilemaps[number - 1].width;
+            let height = this.tilemaps[number - 1].height;
+            let newArray = Array.from(Array(height), () => new Array(width));  //[this.tilemaps[number-1].width, this.tilemaps[number].height];
+
+            for (let i = 0; i < height; i++)
+            for (let j = 0; j < width; j++)
+                {
+                    newArray[i][j] = this.tilemaps[number - 1].mapGrid[i][j];
+                }
+
+
+            return new TileMap(width, height, newArray);
+        }
     }
 
 }

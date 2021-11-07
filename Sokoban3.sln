@@ -7,6 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sokoban", "Sokoban", "{9469
 	ProjectSection(SolutionItems) = preProject
 		GameEngine.js = GameEngine.js
 		Homepage.html = Homepage.html
+		levels.js = levels.js
 		Sokoban.css = Sokoban.css
 		SokobanBase.js = SokobanBase.js
 	EndProjectSection
