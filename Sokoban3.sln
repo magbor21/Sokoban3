@@ -15,7 +15,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tiles", "Tiles", "{563DD56A-66F6-46D4-A2BB-DDC45429BA77}"
 	ProjectSection(SolutionItems) = preProject
 		Tiles\barrel_top_open.png = Tiles\barrel_top_open.png
-		Tiles\goal_on.png = Tiles\goal_on.png
 		Tiles\grass_block_topd.png = Tiles\grass_block_topd.png
 		Tiles\monkey2.png = Tiles\monkey2.png
 		Tiles\observer_back.png = Tiles\observer_back.png

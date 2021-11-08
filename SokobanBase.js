@@ -46,11 +46,12 @@ class TileMaps {
         return this.tilemaps.length;
     }
 
-    Map(number) {
+    Map(number) { //Returns a new TileMap that looks like the original, by copying the values from one array to another 
+
         if (number > 0 && number <= this.tilemaps.length) {
             let width = this.tilemaps[number - 1].width;
             let height = this.tilemaps[number - 1].height;
-            let newArray = Array.from(Array(height), () => new Array(width));  //[this.tilemaps[number-1].width, this.tilemaps[number].height];
+            let newArray = Array.from(Array(height), () => new Array(width));  
 
             for (let i = 0; i < height; i++)
             for (let j = 0; j < width; j++)
